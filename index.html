@@ -7,6 +7,10 @@
     <link href="src/style.css" rel="stylesheet" type="text/css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.6.0/moment-timezone-with-data-1970-2030.min.js"></script>
+<style>
+    .countries { font-size: 25px; border-radius: 5px; margin-top: 10px;
+    margin-left: 10px; padding: 5px; }
+    </style
   </head>
   <body>
     <form class="form">
@@ -18,5 +22,35 @@
       </select>
     </form>
     <script src="src/index.js"></script>
+    <script>
+      function alertTime(event) {
+        if (event.target.value === "paris") {
+          alert(
+            `${moment()
+              .tz("Europe/Paris")
+              .format("[It is] dddd, MMMM D, YYYY h:mm A [in Europe/Paris]")}`
+          );
+        }
+        if (event.target.value === "tokyo") {
+          alert(
+            `${moment()
+              .tz("Asia/Tokyo")
+              .format("[It is] dddd, MMMM D, YYYY h:mm A [in Asia/Tokyo]")}`
+          );
+        }
+        if (event.target.value === "sydney") {
+          alert(
+            `${moment()
+              .tz("Australia/Sydney")
+              .format(
+                "[It is] dddd, MMMM D, YYYY h:mm A [in Australia/Sydney]"
+              )}`
+          );
+        }
+      }
+
+      let button = document.querySelector("#countries");
+      countries.addEventListener("change", alertTime);
+    </script>
   </body>
 </html>
